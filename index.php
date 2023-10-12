@@ -7,7 +7,25 @@ Creare un form che invii in GET la lunghezza della password.
 
 */
 
-$_GET
+$_GET["password"];
+var_dump($_GET["password"]);
+
+function generaPasswordCasuale($lunghezza = 10)
+{
+    $caratteri = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=';
+    $_GET["password"] = '';
+
+    for ($i = 0; $i < $lunghezza; $i++) {
+        $carattereCasuale = $caratteri[rand(0, strlen($caratteri) - 1)];
+        $_GET["password"] .= $carattereCasuale;
+    }
+
+    return $_GET["password"];
+}
+
+// $passwordCasuale = generaPasswordCasuale();
+// echo $passwordCasuale;
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +46,18 @@ $_GET
         <button type="submit">invia</button>
 
     </form>
+
+    <?php
+    $passwordCasuale = generaPasswordCasuale();
+    echo "La Password generata è :" . $passwordCasuale;
+    ?>
+
+
+
+
+
+
+
 
 </body>
 
